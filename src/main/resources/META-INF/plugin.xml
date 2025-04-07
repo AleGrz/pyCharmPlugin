@@ -1,0 +1,23 @@
+
+<idea-plugin>
+    <id>org.alegrz.plugin.TypeStatusBarWidget</id>
+    <name>Type Status Bar Widget</name>
+    <vendor email="aleksander.grzybek1908@gmail.com">Aleksander Grzybek</vendor>
+
+    <description><![CDATA[
+    Displays the type of the Python variable under the cursor in the status bar.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.python</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <statusBarWidgetFactory
+                id="TypeStatusFactory"
+                implementation="org.alegrz.plugin.TypeStatusBarWidgetFactory"
+                order="first"/>
+    </extensions>
+
+</idea-plugin>
+
+    
