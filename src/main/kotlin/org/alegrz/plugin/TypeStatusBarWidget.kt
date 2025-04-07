@@ -72,6 +72,18 @@ class TypeStatusBarWidget(private val project: Project) :
         }
     }
 
+    override fun caretAdded(event: CaretEvent) {
+        if (event.editor.project == project) {
+            updateType(event.editor)
+        }
+    }
+
+    override fun caretRemoved(event: CaretEvent) {
+        if (event.editor.project == project) {
+            updateType(event.editor)
+        }
+    }
+
     override fun selectionChanged(e: FileEditorManagerEvent) {
         val newEditor = e.newEditor
         if (newEditor is TextEditor) {
@@ -109,6 +121,10 @@ class TypeStatusBarWidget(private val project: Project) :
     }
 
     private fun calculateType(editor: Editor, offset: Int): String? {
+        if (editor.caretModel.caretCount != 1) {
+            return null
+        }
+
         val psiFile = PsiDocumentManager.getInstance(project).getPsiFile(editor.document)
 
         if (psiFile !is PyFile) {

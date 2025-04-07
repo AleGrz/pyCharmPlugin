@@ -5,7 +5,7 @@
     <vendor email="aleksander.grzybek1908@gmail.com">Aleksander Grzybek</vendor>
 
     <description><![CDATA[
-    Displays the type of the Python variable under the cursor in the status bar.
+    Displays the type of Python variable under the cursor in the status bar.
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
